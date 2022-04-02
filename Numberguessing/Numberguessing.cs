@@ -9,6 +9,7 @@ namespace Numberguessing
             Random rnd = new Random();
             int randomNumber = rnd.Next(1, 20);
             int guesses = 0;
+            Console.WriteLine("Hello, this is a GIT test");
 
             while (true)
             {
