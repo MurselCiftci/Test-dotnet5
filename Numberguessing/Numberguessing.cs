@@ -18,11 +18,11 @@ namespace Numberguessing
                 while (true)
                 {
                     Console.WriteLine("Guess the right number: ");
-                    
-                    int guessNumber = Convert.ToInt32(Console.ReadLine()); 
+
+                    int guessNumber = Convert.ToInt32(Console.ReadLine());
                     int diff = guessNumber - randomNumber;
                     int absDiff = Math.Abs(diff);
-                    
+
 
                     if (guessNumber != randomNumber && guesses >= 5)
                     {
@@ -48,14 +48,31 @@ namespace Numberguessing
                             guesses++;
                         }
                     }
-                    else 
+                    else
                     {
                         Console.WriteLine("You have won!");
                         gameRunning = false;
                         break;
                     }
                 }
+                Console.WriteLine("Do you want to play again? Enter Y if yes, enter N if no");
+                string decisionRematch = Console.ReadLine();
+                if (decisionRematch == "Y")
+                {
+                    guesses = 0;
+                    randomNumber = rnd.Next(1, 20);
+                    gameRunning = true;
+                }
+                else
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
             }
+
         }
     }
 }
+
+
+
