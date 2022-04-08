@@ -20,9 +20,9 @@ namespace Numberguessing
                     Console.WriteLine("Guess the right number: ");
                     
                     int guessNumber = Convert.ToInt32(Console.ReadLine()); 
-                    int negativeNumberToPositive = guessNumber - randomNumber;
-                    int negativeNumberToPositiveConversion = Math.Abs(negativeNumberToPositive);
-                    int guessMinusRandom = guessNumber - randomNumber;
+                    int diff = guessNumber - randomNumber;
+                    int absDiff = Math.Abs(diff);
+                    
 
                     if (guessNumber != randomNumber && guesses >= 5)
                     {
@@ -33,7 +33,7 @@ namespace Numberguessing
 
                     if (guessNumber != randomNumber)
                     {
-                        if (Enumerable.Range(1,5).Contains(guessMinusRandom) || negativeNumberToPositiveConversion <= 5)
+                        if (absDiff <= 5)
                         {
                             Console.WriteLine("youre close!");
                         }
