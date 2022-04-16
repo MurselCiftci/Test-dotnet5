@@ -8,13 +8,15 @@ namespace Numberguessing
         static void Main(string[] args)
         {
             Random rnd = new Random();
-            int randomNumber = rnd.Next(1, 20);
-            int guesses = 0;
             bool gameRunning = true;
+            int MAX_GUESES = 5;
 
             Console.WriteLine("Hello, this is a GIT test");
             while (gameRunning == true)
             {
+                int randomNumber = rnd.Next(1, 20);
+                int guesses = 0;
+
                 while (true)
                 {
                     Console.WriteLine("Guess the right number: ");
@@ -24,10 +26,9 @@ namespace Numberguessing
                     int absDiff = Math.Abs(diff);
 
 
-                    if (guessNumber != randomNumber && guesses >= 5)
+                    if (guessNumber != randomNumber && guesses >= MAX_GUESES)
                     {
                         Console.WriteLine("You have guessed too often! You failed");
-                        gameRunning = false;
                         break;
                     }
 
@@ -51,25 +52,21 @@ namespace Numberguessing
                     else
                     {
                         Console.WriteLine("You have won!");
-                        gameRunning = false;
                         break;
                     }
                 }
                 Console.WriteLine("Do you want to play again? Enter Y if yes, enter N if no");
                 string decisionRematch = Console.ReadLine();
-                if (decisionRematch == "Y")
+                if (decisionRematch.ToUpper() == "Y")
                 {
-                    guesses = 0;
-                    randomNumber = rnd.Next(1, 20);
-                    gameRunning = true;
+                    Console.WriteLine("That's the spirit!");
                 }
                 else
                 {
+                    gameRunning = false;
                     Console.WriteLine("Goodbye!");
-                    break;
                 }
             }
-
         }
     }
 }
