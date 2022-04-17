@@ -17,7 +17,7 @@ namespace Numberguessing
                 int randomNumber = rnd.Next(1, 20);
                 int guesses = 0;
 
-                while (true)
+                while (true) //runs until won or lost
                 {
                     Console.WriteLine("Guess the right number: ");
 
